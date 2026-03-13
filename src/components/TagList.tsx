@@ -10,7 +10,7 @@ export function TagList({ items }: TagListProps) {
       {items.map((item) => (
         <li
           key={item}
-          className="mono rounded-full border border-accentMuted/45 bg-accentMuted/15 px-3 py-1 text-[11px] uppercase tracking-[0.18em] text-accent/90"
+          className="mono pointer-events-none select-none rounded-full border border-white/7 bg-transparent px-2.5 py-1 text-[10px] uppercase tracking-[0.16em] text-muted/80"
         >
           {item}
         </li>

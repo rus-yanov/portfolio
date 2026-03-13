@@ -144,6 +144,10 @@ export default function Home() {
       </figure>
     </li>
   );
+  const heroActionClassName =
+    "mono inline-flex cursor-pointer items-center justify-center rounded-full border border-accent/75 bg-black/30 px-4 py-2 text-xs uppercase tracking-[0.22em] text-accent shadow-[inset_0_0_0_1px_rgba(184,106,46,0.16)] transition-[color,background-color,border-color,box-shadow,transform] hover:-translate-y-px hover:border-accentHover hover:bg-accent/18 hover:text-accentHover hover:shadow-[inset_0_0_0_1px_rgba(204,122,58,0.22),0_0_0_1px_rgba(204,122,58,0.14)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60";
+  const cardActionClassName =
+    "mono inline-flex cursor-pointer items-center gap-1.5 rounded-full border border-accent/80 bg-black/35 px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-accent shadow-[inset_0_0_0_1px_rgba(184,106,46,0.18)] transition-[color,background-color,border-color,transform,box-shadow] hover:-translate-y-px hover:border-accentHover hover:bg-accent/20 hover:text-accentHover hover:shadow-[inset_0_0_0_1px_rgba(204,122,58,0.24),0_0_0_1px_rgba(204,122,58,0.16)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60";
 
   return (
     <>
@@ -171,7 +175,7 @@ export default function Home() {
                     <a
                       key={button.href}
                       href={button.href}
-                      className="mono rounded-full border border-accentMuted/70 bg-accentMuted/15 px-4 py-2 text-xs uppercase tracking-[0.22em] text-accent transition-colors hover:border-accent hover:bg-accent/20 hover:text-accentHover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60"
+                      className={heroActionClassName}
                       {...("external" in button && button.external
                         ? { target: "_blank", rel: "noreferrer" }
                         : {})}
@@ -303,11 +307,12 @@ export default function Home() {
                           <a
                             key={link.href}
                             href={link.href}
-                            className="mono inline-flex items-center rounded-full border border-accentMuted/50 bg-accentMuted/10 px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-accent/90 transition-colors hover:border-accent hover:bg-accent/16 hover:text-accentHover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50"
+                            className={cardActionClassName}
                             target="_blank"
                             rel="noreferrer"
                           >
                             {link.label}
+                            <span aria-hidden>{"->"}</span>
                           </a>
                         ))}
                       </div>
@@ -339,11 +344,12 @@ export default function Home() {
                 titleAction={
                   <a
                     href={item.link}
-                    className="mono inline-flex items-center rounded-full border border-accentMuted/60 bg-accentMuted/12 px-3 py-1.5 text-[11px] uppercase tracking-[0.2em] text-accent/90 transition-colors hover:border-accent hover:bg-accent/18 hover:text-accentHover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50"
+                    className={cardActionClassName}
                     target="_blank"
                     rel="noreferrer"
                   >
                     {item.ctaLabel ?? "Открыть репозиторий"}
+                    <span aria-hidden>{"->"}</span>
                   </a>
                 }
                 description={item.description}
